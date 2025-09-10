@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vídeo com Transparência e Áudio</title>
+  <style>
+    body {
+      margin: 0;
+      background: #222;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      color: white;
+      font-family: sans-serif;
+    }
+
+    video {
+      max-width: 80%;
+      max-height: 60vh;
+      background: transparent;
+    }
+
+    button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      background: #ff005e;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background: #d4004f;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Meu Vídeo WebM com Áudio</h1>
+
+  <!-- Vídeo -->
+  <video id="meuVideo" autoplay muted loop playsinline>
+    <source src="meu-video.webm" type="video/webm">
+    <source src="meu-video.mp4" type="video/mp4">
+    Seu navegador não suporta vídeo HTML5.
+  </video>
+
+  <!-- Botão para som -->
+  <button id="toggleAudio">Ativar Som</button>
+
+  <script>
+    const video = document.getElementById('meuVideo');
+    const botao = document.getElementById('toggleAudio');
+
+    botao.addEventListener('click', () => {
+      if (video.muted) {
+        video.muted = false;
+        video.play();
+        botao.textContent = "Desativar Som";
+      } else {
+        video.muted = true;
+        botao.textContent = "Ativar Som";
+      }
+    });
+  </script>
+
+</body>
+</html>
